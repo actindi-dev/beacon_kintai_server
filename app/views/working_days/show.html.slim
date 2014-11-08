@@ -5,12 +5,8 @@ table border=1
       th 退勤時間
   tbody
     tr
-      td = @working_day.working_activity.try(:formated_activated_at) || '-'
-      td
-        - if @working_day.leaving? && @working_day.leaving_activity_id
-          = @working_day.leaving_activity.try(:formated_activated_at)
-        - else
-          = '-'
+      td = working_activity(@working_day)
+      td = leaving_activity(@working_day)
 
 - if @working_day.working?
   p 出勤中です
@@ -21,6 +17,6 @@ table border=1
   = x.activated_at.to_s
   br
 
-= link_to '戻る', @user
+= link_to '戻る', user_working_days_path(@user)
 br
 = link_to '記録を作成する', new_user_working_day_activity_path(@user, @working_day)

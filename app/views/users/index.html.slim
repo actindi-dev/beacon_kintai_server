@@ -1,6 +1,6 @@
 h1 ユーザ一覧
 ul
   - @users.each do |user|
-    li = link_to user.name, user
+    li = link_to user.name, user_working_days_path(user)
 
 = render 'shared/login_form'
