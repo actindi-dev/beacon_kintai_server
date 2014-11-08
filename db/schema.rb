@@ -38,11 +38,15 @@ ActiveRecord::Schema.define(version: 20141108035955) do
     t.date     "worked_on"
     t.integer  "user_id"
     t.integer  "status"
+    t.integer  "working_activity_id"
+    t.integer  "leaving_activity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "working_days", ["leaving_activity_id"], name: "index_working_days_on_leaving_activity_id", using: :btree
   add_index "working_days", ["user_id", "worked_on"], name: "index_working_days_on_user_id_and_worked_on", unique: true, using: :btree
   add_index "working_days", ["user_id"], name: "index_working_days_on_user_id", using: :btree
+  add_index "working_days", ["working_activity_id"], name: "index_working_days_on_working_activity_id", using: :btree
 
 end

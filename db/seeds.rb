@@ -21,10 +21,13 @@ users_hash.each { |x|
 }
 
 
-WorkingDay.create! { |x|
-  x.worked_on = Date.new(2011, 1, 1)
-  x.user = User.first
-}
+today = DateTime.now
+10.times do |index|
+  WorkingDay.create! { |x|
+    x.worked_on = today - index
+    x.user = User.first
+  }
+end
 
 
 puts 'finished!'

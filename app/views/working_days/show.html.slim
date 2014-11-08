@@ -1,3 +1,17 @@
+table border=1
+  thead
+    tr
+      th 出勤時間
+      th 退勤時間
+  tbody
+    tr
+      td = @working_day.working_activity.try(:formated_activated_at) || '-'
+      td
+        - if @working_day.leaving? && @working_day.leaving_activity_id
+          = @working_day.leaving_activity.try(:formated_activated_at)
+        - else
+          = '-'
+
 - if @working_day.working?
   p 出勤中です
 - else

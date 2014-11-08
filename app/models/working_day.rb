@@ -4,6 +4,8 @@ class WorkingDay < ActiveRecord::Base
   has_many :activities
 
   belongs_to :user
+  belongs_to :working_activity, class: Activity
+  belongs_to :leaving_activity, class: Activity
 
   after_create do
     self.leaving!

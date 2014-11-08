@@ -4,6 +4,8 @@ class CreateWorkingDays < ActiveRecord::Migration
       t.date :worked_on
       t.references :user, index: true
       t.integer :status
+      t.references :working_activity, index: true
+      t.references :leaving_activity, index: true
 
       t.timestamps
     end
