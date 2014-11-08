@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :required_login
 
   def required_login
-    unless view_context.current_user
-      redirect_to root_url, notice: 'ログインが必要です'
-    end
+  # いらない疑惑
+  #  unless view_context.current_user
+  #    redirect_to root_url, notice: 'ログインが必要です'
+  #  end
   end
 end
