@@ -11,16 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108033002) do
+ActiveRecord::Schema.define(version: 20141108035955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+  create_table "activities", force: true do |t|
+    t.integer  "working_day_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "activities", ["working_day_id"], name: "index_activities_on_working_day_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "working_days", force: true do |t|
+    t.date     "worked_on"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "working_days", ["user_id", "worked_on"], name: "index_working_days_on_user_id_and_worked_on", unique: true, using: :btree
+  add_index "working_days", ["user_id"], name: "index_working_days_on_user_id", using: :btree
 
 end

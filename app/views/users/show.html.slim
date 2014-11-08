@@ -1,1 +1,5 @@
-勤怠
+h1 10日間の出社した状況
+
+- (Date.new(2011,1,1)..Date.new(2011,1,10)).each do |x|
+  = link_to x, user_working_day_path(@user, x)
+  hr

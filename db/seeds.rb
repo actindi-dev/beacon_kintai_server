@@ -16,7 +16,15 @@ users_hash.each { |x|
   User.create! do |user|
     user.name = x[:name]
     user.email = x[:email]
+    user.password = 'password'
   end
 }
+
+
+WorkingDay.create! { |x|
+  x.worked_on = Date.new(2011, 1, 1)
+  x.user = User.first
+}
+
 
 puts 'finished!'

@@ -28,6 +28,11 @@ gem 'spring',        group: :development
 
 gem 'slim-rails'
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
