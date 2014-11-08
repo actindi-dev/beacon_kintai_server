@@ -1,4 +1,12 @@
-- if @working_day
-  p 出勤したね
+- if @working_day.working?
+  p 出勤中です
 - else
-  p 記録なし
+  p 会社にいません
+
+- @working_day.activities.each do |x|
+  = x.activated_at.to_s
+  br
+
+= link_to '戻る', @user
+br
+= link_to '記録を作成する', new_user_working_day_activity_path(@user, @working_day)

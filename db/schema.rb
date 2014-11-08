@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141108035955) do
   create_table "activities", force: true do |t|
     t.integer  "working_day_id"
     t.integer  "status"
+    t.datetime "activated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

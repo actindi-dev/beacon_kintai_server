@@ -3,6 +3,7 @@ class CreateActivities < ActiveRecord::Migration
     create_table :activities do |t|
       t.references :working_day, index: true
       t.integer :status
+      t.datetime :activated_at
 
       t.timestamps
     end
