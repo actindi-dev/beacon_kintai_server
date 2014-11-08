@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  root 'users#index'
+
+  resources :users, only: %i(index show)
 end
