@@ -1,7 +1,7 @@
 class WorkingDaysController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @working_days = @user.working_days.order('worked_on DESC').limit(10)
+    @working_days = @user.working_days.includes(:working_activity, :leaving_activity).order('worked_on DESC').limit(10)
   end
 
   def show

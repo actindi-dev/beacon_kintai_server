@@ -19,8 +19,4 @@ class Activity < ActiveRecord::Base
       working_day.update_column(:leaving_activity_id, id)
     end
   end
-
-  def formated_activated_at
-    activated_at.to_s(:time_jp) if activated_at
-  end
 end
