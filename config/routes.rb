@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   root 'users#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :activities, only: :create
+    end
+  end
+
   resources :users, only: %i(index show) do
     resources :working_days do
       resources :activities
