@@ -1,3 +1,5 @@
+h1. @working_day.worked_on.to_s(:yyyy_m_d_jp)
+
 table border=1
   thead
     tr
@@ -14,7 +16,7 @@ table border=1
   p 会社にいません
 
 - @working_day.activities.each do |x|
-  = x.activated_at.to_s
+  = x.activated_at.to_s(:time_jp)
   br
 
 = link_to '戻る', user_working_days_path(@user)
