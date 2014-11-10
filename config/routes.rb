@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i(index show) do
+  resources :users do
     resources :working_days do
       resources :activities
     end

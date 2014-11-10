@@ -1,0 +1,9 @@
+= form_for(@user) do |f|
+  p
+    = f.label :name
+    = f.text_field :name
+
+  p
+    = f.label :pasword
+    = f.password_field :password
+  = f.submit
