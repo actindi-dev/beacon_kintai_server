@@ -16,7 +16,7 @@ users_hash.each { |x|
   User.create! do |user|
     user.name = x[:name]
     user.email = x[:email]
-    user.password = 'password'
+    user.auth_token = 'hoge'
   end
 }
 
